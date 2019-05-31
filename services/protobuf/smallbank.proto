@@ -1,0 +1,23 @@
+//smallbank.proto
+package awesomepackage;
+syntax = "proto3";
+
+message SmallbankTransactionPayload {
+    message CreateAccountTransactionData {
+        uint32 customer_id = 1;
+
+        string customer_name = 2;
+
+        uint32 initial_savings_balance = 3;
+
+        uint32 initial_checking_balance = 4;
+    }
+
+    enum PayloadType {
+        PAYLOAD_TYPE_UNSET = 0;
+        CREATE_ACCOUNT = 1;
+    }
+
+    PayloadType payload_type = 1;
+    CreateAccountTransactionData create_account = 2;
+}
